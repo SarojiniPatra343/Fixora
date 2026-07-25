@@ -16,6 +16,9 @@ app.use(cors({
     origin:'http://localhost:5173',
     methods:['GET','POST','PUT','PATCH','DELETE']
 }))
+app.get('/',(req,res)=>{
+    res.send('Backend Server is running');
+});
 app.use('/admin',adminRouter);
 app.use('/user',userRouter);
 app.use('/provider',providerRouter);
