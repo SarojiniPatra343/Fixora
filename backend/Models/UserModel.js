@@ -1,0 +1,47 @@
+const mongoose=require('mongoose');
+const UserSchema=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    phone:{
+        type:String,
+        required:true
+    },
+    role:{
+        type:String,
+        required:true,
+        enum:['customer','provider'],
+        default:'customer'
+    },
+    profileImage:{
+        type:String,
+        required:true
+    },
+    address:{
+        street:{type:String},
+        city:{type:String},
+        state:{type:String},
+        pincode:{type:String},
+        location:{type:String}
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
+    },
+    updatedAt:{
+        type:Date,
+        default:Date.now
+    }
+})
+const UserModel=mongoose.model('user',UserSchema);
+module.exports=UserModel;

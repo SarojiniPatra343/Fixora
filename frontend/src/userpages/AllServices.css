@@ -1,0 +1,188 @@
+/* ===== PAGE ===== */
+.servicePage {
+    min-height: 100vh;
+    padding: 40px;
+    background: linear-gradient(
+        135deg,
+        #050816,
+        #0b1120,
+        #0f172a
+    );
+    color: white;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== HEADER ===== */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sectionHeader h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.sectionHeader h2::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 4px;
+    background: linear-gradient(to right, #38bdf8, #2563eb);
+    left: 15%;
+    bottom: -10px;
+    border-radius: 20px;
+}
+
+/* ===== GRID ===== */
+.serviceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* ===== CARD ===== */
+.serviceCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    position: relative;
+
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Hover Animation */
+.serviceCard:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow:
+        0 10px 30px rgba(56, 189, 248, 0.4),
+        0 0 30px rgba(37, 99, 235, 0.3);
+}
+
+/* Glow Border */
+.serviceCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(
+        45deg,
+        #38bdf8,
+        transparent,
+        #2563eb
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+/* ===== IMAGE ===== */
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.serviceImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.serviceCard:hover .serviceImage {
+    transform: scale(1.15);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        transparent
+    );
+}
+
+/* ===== BODY ===== */
+.serviceBody {
+    padding: 20px;
+}
+
+.serviceBody h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #38bdf8;
+    transition: 0.3s;
+}
+
+.serviceCard:hover h3 {
+    color: #60a5fa;
+}
+
+.serviceBody p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ===== FLOATING EFFECT ===== */
+.serviceCard:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.serviceCard:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .servicePage {
+        padding: 20px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 2rem;
+    }
+
+    .serviceGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .imageWrapper {
+        height: 200px;
+    }
+}

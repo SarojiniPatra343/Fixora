@@ -1,0 +1,74 @@
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+}
+
+.register-box {
+  width: 450px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Title */
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* 🔥 GRID FORM (2 fields per row) */
+.register-box form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 columns */
+  gap: 12px 30px;
+}
+
+/* Make full width elements span 2 columns */
+.register-box h4,
+.register-box button,
+.register-box p,
+.register-box select {
+  grid-column: span 2;
+}
+
+/* Inputs */
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Focus */
+.register-box input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 5px rgba(102,126,234,0.4);
+}
+
+/* Button */
+.register-box button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4facfe;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Login text */
+.register-box p {
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+}

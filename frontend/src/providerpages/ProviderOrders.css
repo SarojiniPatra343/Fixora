@@ -1,0 +1,232 @@
+/* ProviderOrders.css */
+
+.provider-orders {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 30px;
+}
+
+.provider-orders h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.order-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid #2563eb;
+}
+
+.order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.order-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.order-card p {
+    margin: 8px 0;
+    color: #475569;
+    font-size: 15px;
+}
+
+.order-card strong {
+    color: #0f172a;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.status.confirmed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.no-orders {
+    text-align: center;
+    margin-top: 50px;
+    color: #64748b;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .provider-orders {
+        padding: 15px;
+    }
+
+    .order-card {
+        padding: 15px;
+    }
+
+    .provider-orders h1 {
+        font-size: 24px;
+    }
+}
+/* Page Fade In */
+.provider-orders {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title Animation */
+.provider-orders h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    animation: slideDown 0.8s ease;
+}
+
+/* Card Animation */
+.order-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #2563eb;
+
+    animation: cardAppear 0.6s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.2);
+}
+
+/* Status Pulse */
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+.status.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.status.confirmed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.order-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.order-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+.status-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.status-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+.update-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.update-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}

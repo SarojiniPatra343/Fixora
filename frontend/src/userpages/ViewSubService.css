@@ -1,0 +1,542 @@
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+
+.dashboardContent {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #050816, #0b1120, #071426);
+  font-family: "Segoe UI", sans-serif;
+  color: #ffffff;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 35px;
+
+  padding: 28px 35px;
+
+  border-radius: 24px;
+
+  background: linear-gradient(135deg, #0f172a, #111827);
+
+  border: 1px solid rgba(59, 130, 246, 0.25);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(37, 99, 235, 0.12);
+
+  animation: slideDown 0.7s ease;
+}
+
+.headerLeft h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.servicesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 30px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.serviceCard {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: linear-gradient(145deg, #0f172a, #020617);
+
+  border: 1px solid rgba(59, 130, 246, 0.18);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 15px rgba(37, 99, 235, 0.1);
+
+  transition: all 0.4s ease;
+
+  animation: cardFade 0.8s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  border-color: rgba(59, 130, 246, 0.5);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(59, 130, 246, 0.35);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.imageWrapper {
+  position: relative;
+
+  height: 240px;
+
+  overflow: hidden;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.12);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 23, 0.95),
+    rgba(2, 6, 23, 0.1)
+  );
+}
+
+/* ===========================
+   STATUS BADGE
+=========================== */
+
+.statusBadge {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  padding: 8px 16px;
+
+  border-radius: 30px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(8px);
+
+  animation: pulse 2s infinite;
+}
+
+.statusBadge.active {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.statusBadge.inactive {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+.cardBody {
+  padding: 24px;
+}
+
+.subServiceTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  color: #ffffff;
+}
+
+.serviceName {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  padding: 8px 14px;
+
+  border-radius: 12px;
+
+  background: rgba(37, 99, 235, 0.15);
+
+  color: #93c5fd;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   INFO ROWS
+=========================== */
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.infoLabel {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.infoValue {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===========================
+   PRICE
+=========================== */
+
+.price {
+  margin-top: 22px;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  color: #3b82f6;
+
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+
+  animation: glow 2s infinite alternate;
+}
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+.description {
+  margin-top: 16px;
+
+  color: #cbd5e1;
+
+  line-height: 1.7;
+
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.cardFooter {
+  margin-top: 25px;
+}
+
+.btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition: all 0.4s ease;
+}
+
+.btnView {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btnView:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.55);
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+
+.emptyState {
+  margin-top: 100px;
+
+  text-align: center;
+
+  padding: 50px;
+
+  border-radius: 24px;
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 1px solid rgba(59, 130, 246, 0.15);
+
+  animation: fadeIn 1s ease;
+}
+
+.emptyState h2 {
+  color: #94a3b8;
+  font-size: 1.8rem;
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+
+  to {
+    text-shadow: 0 0 22px rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .dashboardContent {
+    padding: 20px;
+  }
+
+  .headerSection {
+    padding: 22px;
+  }
+
+  .headerLeft h1 {
+    font-size: 1.5rem;
+  }
+
+  .serviceCard {
+    border-radius: 20px;
+  }
+
+  .imageWrapper {
+    height: 210px;
+  }
+}
+/* ===========================
+   BOOKING MODAL
+=========================== */
+
+.bookingModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(5px);
+}
+
+.bookingModal {
+  width: 90%;
+  max-width: 500px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(145deg, #0f172a, #020617);
+
+  border: 1px solid rgba(59, 130, 246, 0.3);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(37, 99, 235, 0.2);
+
+  color: white;
+
+  animation: fadeIn 0.3s ease;
+}
+
+.bookingModal h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bookingModal label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.bookingModal input,
+.bookingModal textarea {
+  width: 100%;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: #111827;
+
+  color: white;
+
+  outline: none;
+}
+
+.bookingModal input:focus,
+.bookingModal textarea:focus {
+  border-color: #3b82f6;
+}
+
+.amountBox {
+  margin-top: 20px;
+
+  text-align: center;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  background: rgba(37, 99, 235, 0.15);
+
+  color: #60a5fa;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.payBtn,
+.cancelBtn {
+  flex: 1;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.payBtn {
+  background: #2563eb;
+  color: white;
+}
+
+.payBtn:hover {
+  background: #1d4ed8;
+}
+
+.cancelBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.cancelBtn:hover {
+  background: #dc2626;
+}
+.imageOverlay {
+  pointer-events: none;
+}
