@@ -10,15 +10,22 @@ mongoose.connect(process.env.MONGO_URI)
 const adminRouter=require('./Routes/adminRoute');
 const userRouter=require('./Routes/userRoute');
 const providerRouter=require('./Routes/providerRoute');
+
+
+app.get("/", (req, res) => {
+  res.send("Backend Server is running");
+});
+
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:5173',
-    methods:['GET','POST','PUT','PATCH','DELETE']
-}))
-app.get('/',(req,res)=>{
-    res.send('Backend Server is running');
-});
+  origin: [
+    "http://localhost:5173",
+    "https://fixora-hazel.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+}));
 app.use('/admin',adminRouter);
 app.use('/user',userRouter);
 app.use('/provider',providerRouter);
