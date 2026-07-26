@@ -37,7 +37,7 @@ function UploadInfo() {
 
         axios
             .post(
-                "http://localhost:8000/provider/uploadInfo",
+                "${import.meta.env.VITE_API_URL}/provider/uploadInfo",
                 data,{
             headers: {
                 Authorization: token,

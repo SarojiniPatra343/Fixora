@@ -9,7 +9,7 @@ function AllProvider() {
     const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/admin/allProvider")
+        axios.get("${import.meta.env.VITE_API_URL}/admin/allProvider")
           
             .then((res) => {
                 setProviders(res.data);
@@ -19,7 +19,7 @@ function AllProvider() {
     }, []);
 
     const viewData = (id) => {
-        axios.get(`http://localhost:8000/admin/viewProvider/${id}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/admin/viewProvider/${id}`)
             .then((res) => {
                 setProviderData(res.data);
                 setOpenModal(true);
@@ -63,7 +63,7 @@ function AllProvider() {
                         <div style={styles.banner}>
 
                             <img
-                                src={`http://localhost:8000${provider.profileImage}`}
+                                src={`${import.meta.env.VITE_API_URL}${provider.profileImage}`}
                                 alt="Profile"
                                 style={styles.profileImage}
                             />

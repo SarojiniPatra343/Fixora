@@ -20,10 +20,9 @@ function CreateSubService() {
 
         const token = localStorage.getItem("token");
 
-        axios
-            .get("http://localhost:8000/provider/allServices",{
-            headers: { Authorization: token }
-        })
+       axios.get(`${import.meta.env.VITE_API_URL}/provider/allServices`, {
+    headers: { Authorization: token }
+})
 
             .then((res) => {
 
@@ -69,15 +68,15 @@ function CreateSubService() {
     const token = localStorage.getItem("token");
 
     try {
-        const response = await axios.post(
-            "http://localhost:8000/provider/subService",
-            formData,
-            {
-                headers: {
-                    Authorization: token
-                }
-            }
-        );
+       const response = await axios.post(
+    `${import.meta.env.VITE_API_URL}/provider/subService`,
+    formData,
+    {
+        headers: {
+            Authorization: token
+        }
+    }
+);
 
         alert(response.data.message);
 

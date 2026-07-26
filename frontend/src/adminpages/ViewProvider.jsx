@@ -9,7 +9,7 @@ function ViewProvider({ openModal, providerData, closeModal }) {
         try {
 
             const res = await axios.put(
-                `http://localhost:8000/admin/approveProvider/${providerData._id}`
+                `${import.meta.env.VITE_API_URL}/admin/approveProvider/${providerData._id}`
             );
 
             alert(res.data.message);
@@ -28,7 +28,7 @@ function ViewProvider({ openModal, providerData, closeModal }) {
         try {
 
             await axios.put(
-                `http://localhost:8000/admin/rejectProvider/${providerData._id}`
+                `${import.meta.env.VITE_API_URL}/admin/rejectProvider/${providerData._id}`
             );
 
             alert("Provider Rejected");
@@ -67,7 +67,7 @@ function ViewProvider({ openModal, providerData, closeModal }) {
 
                         {/* Document Image */}
                         <img
-                            src={`http://localhost:8000${providerData.documents[0].document}`}
+                            src={`${import.meta.env.VITE_API_URL}${providerData.documents[0].document}`}
                             alt="document"
                             style={styles.image}
                         />

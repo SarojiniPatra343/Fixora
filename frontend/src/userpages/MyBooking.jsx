@@ -13,7 +13,7 @@ function MyBooking() {
         console.log("User ID from localStorage:", userId);
 
         axios
-            .get(`http://localhost:8000/user/allBookings/${userId}`,{
+            .get(`${import.meta.env.VITE_API_URL}/user/allBookings/${userId}`,{
             headers: { Authorization: token }
         }) 
             .then((res) => {

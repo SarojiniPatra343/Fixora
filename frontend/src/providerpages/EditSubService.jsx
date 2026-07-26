@@ -17,7 +17,7 @@ function EditSubService() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/provider/singleSubService/${id}`,{
+            .get(`${import.meta.env.VITE_API_URL}/provider/singleSubService/${id}`,{
             headers: { Authorization: token }
         })
             .then((res) => {
@@ -44,7 +44,7 @@ function EditSubService() {
 
     try {
         const res = await axios.put(
-            `http://localhost:8000/provider/updateSubService/${id}`,
+            `${import.meta.env.VITE_API_URL}/provider/updateSubService/${id}`,
             formData,
             {
                 headers: {

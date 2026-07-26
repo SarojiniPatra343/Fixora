@@ -10,7 +10,7 @@ function AllUser() {
        
       
 
-axios.get("http://localhost:8000/admin/allUser")
+axios.get("${import.meta.env.VITE_API_URL}/admin/allUser")
    
 
 .then((res) => {
@@ -63,7 +63,7 @@ axios.get("http://localhost:8000/admin/allUser")
                             }}
                         >
                             <img
-                                src={`http://localhost:8000${user.profileImage}`}
+                                src={`${import.meta.env.VITE_API_URL}${user.profileImage}`}
                                 alt="Profile"
                                 style={{
                                     width: "110px",

@@ -19,7 +19,7 @@ function AddService() {
     const handleClick = (id) => {
     axios
         .patch(
-            `http://localhost:8000/admin/changeStatus/${id}`,
+            `${import.meta.env.VITE_API_URL}/admin/changeStatus/${id}`,
             {},
             {
                 headers: {
@@ -36,7 +36,7 @@ function AddService() {
 
    const fetchServices = () => {
     axios
-        .get("http://localhost:8000/admin/allService", {
+        .get("${import.meta.env.VITE_API_URL}/admin/allService", {
             headers: {
                 Authorization: token
             }
@@ -65,7 +65,7 @@ function AddService() {
         data.append("image", formData.ServiceImage);
 
         axios
-            .post("http://localhost:8000/admin/createService", data, {
+            .post("${import.meta.env.VITE_API_URL}/admin/createService", data, {
                 headers: {
                     Authorization: token
                 }
@@ -123,7 +123,7 @@ function AddService() {
                         style={{ animationDelay: `${index * 0.1}s` }}
                     >
                         <img
-                            src={`http://localhost:8000${service.ServiceImage}`}
+                            src={`${import.meta.env.VITE_API_URL}${service.ServiceImage}`}
                             alt=""
                         />
 

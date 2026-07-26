@@ -11,7 +11,7 @@ function ProviderOrders() {
         const token = localStorage.getItem("token");
 
         axios
-            .get(`http://localhost:8000/provider/providerOrders/${providerId}`,{
+            .get(`${import.meta.env.VITE_API_URL}/provider/providerOrders/${providerId}`,{
             headers: { Authorization: token }
         })
             .then((res) => {
@@ -44,7 +44,7 @@ function ProviderOrders() {
             const token = localStorage.getItem("token");
 
 const res = await axios.patch(
-    `http://localhost:8000/provider/changeBookingStatus/${bookingId}`,
+    `${import.meta.env.VITE_API_URL}/provider/changeBookingStatus/${bookingId}`,
     { status },
     {
         headers: {

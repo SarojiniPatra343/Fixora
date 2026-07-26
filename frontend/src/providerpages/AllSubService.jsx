@@ -15,7 +15,7 @@ function AllSubService() {
     const handleClick = (id) => {
         axios
             .get(
-                `http://localhost:8000/provider/changeSubServiceStatus/${id}`,
+                 `${import.meta.env.VITE_API_URL}/provider/changeSubServiceStatus/${id}`,
                 {
                     headers: {
                         Authorization: token
@@ -35,7 +35,7 @@ function AllSubService() {
         if (userId) {
             axios
                 .get(
-                    `http://localhost:8000/provider/allSubService/${userId}`,
+                      `${import.meta.env.VITE_API_URL}/provider/allSubService/${userId}`,
                     {
                         headers: {
                             Authorization: token

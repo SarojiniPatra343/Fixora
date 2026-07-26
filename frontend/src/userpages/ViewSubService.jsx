@@ -19,7 +19,7 @@ function ViewSubService() {
         const token = localStorage.getItem("token");
 
         axios
-            .get(`http://localhost:8000/user/subServices` ,{
+            .get(`${import.meta.env.VITE_API_URL}/user/subServices` ,{
             headers: { Authorization: token }
         })
 
@@ -70,7 +70,7 @@ function ViewSubService() {
             }
 
           const orderRes = await axios.post(
-    "http://localhost:8000/user/create-order",
+    "${import.meta.env.VITE_API_URL}/user/create-order",
     {
         amount: selectedService.price
     },
@@ -101,7 +101,7 @@ function ViewSubService() {
                     try {
                         const verifyRes =
                             await axios.post(
-                                "http://localhost:8000/user/verify-payment",
+                                "${import.meta.env.VITE_API_URL}/user/verify-payment",
                                 {
                                     razorpay_order_id:
                                         response.razorpay_order_id,
@@ -202,7 +202,7 @@ function ViewSubService() {
                                     <div className="imageWrapper">
 
                                         <img
-                                            src={`http://localhost:8000${subService.serviceId.ServiceImage}`}
+                                            src={`${import.meta.env.VITE_API_URL}${subService.serviceId.ServiceImage}`}
                                             alt={subService.subServiceName}
                                             className="serviceImage"
                                         />

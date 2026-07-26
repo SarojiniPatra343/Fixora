@@ -9,7 +9,7 @@ function AllService() {
    useEffect(() => {
     const token = localStorage.getItem("token");
 
-    axios.get("http://localhost:8000/admin/allService", {
+    axios.get("${import.meta.env.VITE_API_URL}/admin/allService", {
         headers: { Authorization: token }
     })
     .then((res) => {
@@ -48,7 +48,7 @@ function AllService() {
                         <div className="imageWrapper">
 
                             <img
-                                src={`http://localhost:8000${service.ServiceImage}`}
+                                src={`${import.meta.env.VITE_API_URL}${service.ServiceImage}`}
                                 alt="service"
                                 className="serviceImage"
                             />
