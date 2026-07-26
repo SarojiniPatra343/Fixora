@@ -17,7 +17,7 @@ function AdminLogin() {
     }
     const handleSubmit=(event)=>{
       event.preventDefault();
-      axios.post('http://localhost:8000/admin/login',formData)
+      axios.post(`${import.meta.env.VITE_API_URL}/admin/login`, formData)
       .then((res)=>{
         console.log(res.data);
         if(res.data.role=='admin'){
