@@ -16,7 +16,7 @@ function UserLogin() {
   const handleSubmit=(event)=>{
     event.preventDefault();
     // console.log(formData)
-    axios.post("http://localhost:8000/user/login",formData)
+    axios.post(`${import.meta.env.VITE_API_URL}/user/login`, formData)
     .then(res=>{
       localStorage.setItem('name',res.data.user.name)
       localStorage.setItem('role',res.data.user.role)

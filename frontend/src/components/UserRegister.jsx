@@ -49,7 +49,7 @@ function UserRegister() {
     data.append("image", formData.image);
 
     axios
-      .post("http://localhost:8000/user/createUser", data)
+      axios.post(`${import.meta.env.VITE_API_URL}/user/createUser`, data)
       .then((res) => {
         alert(res.data.message);
       })
