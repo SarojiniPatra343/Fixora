@@ -69,8 +69,8 @@ function ViewSubService() {
                 return;
             }
 
-          const orderRes = await axios.post(
-    "${import.meta.env.VITE_API_URL}/user/create-order",
+  const orderRes = await axios.post(
+    `${import.meta.env.VITE_API_URL}/user/create-order`,
     {
         amount: selectedService.price
     },
@@ -78,7 +78,6 @@ function ViewSubService() {
         headers: { Authorization: token }
     }
 );
-
             
 
             const order = orderRes.data;
@@ -99,37 +98,27 @@ function ViewSubService() {
 
                 handler: async function (response) {
                     try {
-                        const verifyRes =
-                            await axios.post(
-                                "${import.meta.env.VITE_API_URL}/user/verify-payment",
-                                {
-                                    razorpay_order_id:
-                                        response.razorpay_order_id,
-                                    razorpay_payment_id:
-                                        response.razorpay_payment_id,
-                                    razorpay_signature:
-                                        response.razorpay_signature,
-                                    userId,
-                                    providerUserId: selectedService.userId,
-                                    serviceId:
-                                        selectedService.serviceId._id,
-                                    subServiceId:
-                                        selectedService._id,
-                                    bookingDate:
-                                        bookingData.bookingDate,
-                                    bookingTime:
-                                        bookingData.bookingTime,
-                                    amount:
-                                        selectedService.price,
-                                    address:
-                                        bookingData.address
-                                },
-                                {
-                                    headers: {
-                                         Authorization: token 
-                                        }
-                                }
-                            );
+                        const verifyRes = await axios.post(
+    `${import.meta.env.VITE_API_URL}/user/verify-payment`,
+    {
+        razorpay_order_id: response.razorpay_order_id,
+        razorpay_payment_id: response.razorpay_payment_id,
+        razorpay_signature: response.razorpay_signature,
+        userId,
+        providerUserId: selectedService.userId,
+        serviceId: selectedService.serviceId._id,
+        subServiceId: selectedService._id,
+        bookingDate: bookingData.bookingDate,
+        bookingTime: bookingData.bookingTime,
+        amount: selectedService.price,
+        address: bookingData.address
+    },
+    {
+        headers: {
+            Authorization: token
+        }
+    }
+);
 
                         alert("Booking Successful");
 
