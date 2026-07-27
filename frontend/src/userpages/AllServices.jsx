@@ -9,12 +9,12 @@ function AllService() {
    useEffect(() => {
     const token = localStorage.getItem("token");
 
-    axios.get("${import.meta.env.VITE_API_URL}/admin/allService", {
+    axios.get(`${import.meta.env.VITE_API_URL}/admin/allService`, {
         headers: { Authorization: token }
     })
     .then((res) => {
         console.log("Services:", res.data);
-        setServices(res.data);
+        setServices(res.data.services);
     })
     .catch((err) => console.log(err));
 }, []);
@@ -37,7 +37,8 @@ function AllService() {
 
             <div className="serviceGrid">
 
-                {services.map((service) => (
+                {Array.isArray(services) &&
+  services.map((service) => (
 
                     <div
                         className="serviceCard"
